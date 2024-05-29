@@ -28,9 +28,6 @@ data:
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         server_name _;
-        location / {
-            try_files $uri $uri/ =404;
-        }
         location /nginx_status {
           stub_status;
         }
