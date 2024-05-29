@@ -20,6 +20,9 @@ spec:
         volumeMounts:
         - name: html-volume
           mountPath: /usr/share/nginx/html
+        - name: stub_status_nginx.conf
+          mountPath: /etc/nginx/conf.d/stub_status_nginx.conf
+          subPath: stub_status_nginx.conf
       volumes:
       - name: html-volume
         configMap:
@@ -27,3 +30,9 @@ spec:
           items:
           - key: index.html
             path: index.html
+      - name: stub_status_nginx.conf
+        configMap:
+          name: nginx-html
+          items:
+          - key: stub_status_nginx.conf
+            path: stub_status_nginx.conf
