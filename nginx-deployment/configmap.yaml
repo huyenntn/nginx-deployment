@@ -25,6 +25,7 @@ data:
     server {
         listen 80 default_server;
         listen [::]:80 default_server;
+        access_log  /var/log/nginx/access.log  main;
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         server_name _;
