@@ -27,8 +27,12 @@ data:
         listen [::]:80 default_server;
         server_name  localhost;
         access_log  /var/log/nginx/access.log  main;
+        location / {
+          root   /usr/share/nginx/html;
+          index  index.html index.htm;
+        }
         location /nginx_status {
-          stub_status on;
+          stub_status;
         }
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
@@ -42,7 +46,7 @@ data:
         listen  [::]:80;
         server_name  localhost;
     
-        access_log  /var/log/nginx/access.log  main;
+        access_log  /var/log/nginx/host.access.log  main;
     
         location / {
             root   /usr/share/nginx/html;
