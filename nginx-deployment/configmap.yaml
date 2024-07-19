@@ -21,25 +21,7 @@ data:
       </body>
     </html>
   
-  stub_status_nginx.conf: |
-    server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        server_name  localhost;
-        access_log  /var/log/nginx/access.log  main;
-        location / {
-          root   /usr/share/nginx/html;
-          index  index.html index.htm;
-        }
-        location /nginx_status {
-          stub_status;
-        }
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   /usr/share/nginx/html;
-        }
-    }
-    
+
   default.conf: |
     server {
         listen       80;
@@ -51,6 +33,10 @@ data:
         location / {
             root   /usr/share/nginx/html;
             index  index.html index.htm;
+        }
+        
+        location /nginx_status {
+          stub_status;
         }
     
         #error_page  404              /404.html;
