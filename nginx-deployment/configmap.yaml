@@ -29,8 +29,6 @@ data:
         access_log  /var/log/nginx/access.log  main;
         location /nginx_status {
           stub_status on;
-          allow 127.0.0.1;
-          deny all;
         }
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
