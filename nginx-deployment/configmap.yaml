@@ -24,7 +24,6 @@ data:
   stub_status_nginx.conf: |
     server {
         listen 80 default_server;
-        server_name  localhost;
         location / {
           root   /usr/share/nginx/html;
           index  index.html index.htm;
